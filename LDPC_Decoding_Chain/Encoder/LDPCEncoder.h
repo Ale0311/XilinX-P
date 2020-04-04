@@ -8,14 +8,17 @@
 #ifndef ENCODER_LDPCENCODER_H_
 #define ENCODER_LDPCENCODER_H_
 
+#include<fstream>
+
 class LDPC_Encoder {
 public:
 	LDPC_Encoder(int nr_cols_b, int nr_rows_b, int expansion_factor);
 	~LDPC_Encoder();
 
-	void set_base_matrix(int **base_matrix);
+	void set_base_matrix();
 	//
 	int encode(unsigned char *src_vec, unsigned char *coded_vector);
+    
 
 private:
 	//size of the input and output vector
@@ -29,19 +32,25 @@ private:
 	//size of parity check matrix h
 	int nr_cols_h; 		//nr of columns in h matrix
 	int nr_rows_h;		//nr of rows in h matrix
-
+    
+    int **identity;
 	//base matrix b
 	int **base_matrix;
 	//parity check matrix h
 	//each value in the vector contains 8 binary values from a row
-	unsigned char **parity_check;
+	int **parity_check;
 	//transformed version of  h
 	//each value in the vector contains 8 binary values from a row
 	unsigned char **trans_version_h;
-
+    
+    void expand_b(std::ofstream &fout);
+    void permute(std::ofstream &fout,int n );
 	void extract_h();
+    void create_identity();
+    void read_b(std::ifstream &fin);
+    void see_b();
 	void gaussian_elimination();
-	bool parity_check();
+	bool parity_check_b();
 
 	void get_h_triangular_form();
 
