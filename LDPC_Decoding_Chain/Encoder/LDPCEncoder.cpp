@@ -17,10 +17,22 @@ LDPC_Encoder::LDPC_Encoder(int nr_cols_b, int nr_rows_b, int expansion_factor) {
     this->nr_cols_b = nr_cols_b;
     this->nr_rows_b = nr_rows_b;
     this->expansion_factor = expansion_factor;
+	
+	//vezi ca trebuie calculati si aceste valori 
+	/*
+	int nr_cols_h; 		//nr of columns in h matrix
+	int nr_rows_h;		//nr of rows in h matrix
+    int nr_src_bits;	//number of source(usefull) bits
+	int codeword_size;	//codeword size in bits
+	*/
+	
+	
+	
 }
 
 LDPC_Encoder::~LDPC_Encoder() {
 	// TODO Auto-generated destructor stub
+
 }
 
 
