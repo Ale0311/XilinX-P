@@ -41,15 +41,19 @@ private:
 	int **parity_check;
 	//transformed version of  h
 	//each value in the vector contains 8 binary values from a row
-	unsigned char **trans_version_h;
+	int **trans_version_h;
     
-    void expand_b(std::ofstream &fout);
-    void permute(std::ofstream &fout,int n );
+    int **a;
+    float **t;
+    float **inverse_of_t;
+    
+   
 	void extract_h();
-    void create_identity();
+    void create_identity( int n );
     void read_b(std::ifstream &fin);
     void see_b();
-	void gaussian_elimination();
+    
+	void gaussian_elimination_inv_t();
 	bool parity_check_b();
 
 	void get_h_triangular_form();
