@@ -14,7 +14,7 @@
 using namespace ::std;
 
 LDPC_Encoder::LDPC_Encoder(int nr_cols_b, int nr_rows_b, int expansion_factor) {
-	// TODO Auto-generated constructor stub
+    // TODO Auto-generated constructor stub
     this->nr_cols_b = nr_cols_b;
     this->nr_rows_b = nr_rows_b;
     this->expansion_factor = expansion_factor;
