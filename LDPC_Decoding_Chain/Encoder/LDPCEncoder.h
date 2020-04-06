@@ -17,7 +17,7 @@ public:
 
 	void set_base_matrix();
 	//
-	int encode(unsigned char *src_vec, unsigned char *coded_vector);
+	int encode(unsigned  *src_vec, unsigned  *coded_vector);
     
 
 private:
@@ -65,8 +65,8 @@ private:
 	void get_sub_matrix_d();
 	void get_sub_matrix_e();
 
-	void get_p1(unsigned char *src_vector, unsigned char *p1);
-	void get_p2(unsigned char *src_vector, unsigned char *p1);
+    void get_p1(unsigned char *src_vector, unsigned char *p1);
+	void get_p2(unsigned char *src_vector, unsigned char *p2);
 };
 
 #endif /* ENCODER_LDPCENCODER_H_ */
