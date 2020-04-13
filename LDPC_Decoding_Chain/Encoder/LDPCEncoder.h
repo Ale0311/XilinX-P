@@ -17,7 +17,7 @@ public:
 
 	void set_base_matrix();
 	//
-	int encode(unsigned  *src_vec, unsigned  *coded_vector);
+	int encode(Data *src_vec, Data  *coded_vector);
     
 
 private:
@@ -38,10 +38,10 @@ private:
 	int **base_matrix;
 	//parity check matrix h
 	//each value in the vector contains 8 binary values from a row
-	int **parity_check;
+	Data **parity_check;
 	//transformed version of  h
 	//each value in the vector contains 8 binary values from a row
-	int **trans_version_h;
+	Data **trans_version_h;
     
     int **a;
     float **t;
@@ -65,8 +65,8 @@ private:
 	void get_sub_matrix_d();
 	void get_sub_matrix_e();
 
-    void get_p1(unsigned char *src_vector, unsigned char *p1);
-	void get_p2(unsigned char *src_vector, unsigned char *p2);
+    void get_p1(Data *src_vector, Data *p1);
+	void get_p2(Data *src_vector, Data *p2);
 };
 
 #endif /* ENCODER_LDPCENCODER_H_ */
