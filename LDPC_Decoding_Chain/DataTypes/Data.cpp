@@ -7,13 +7,23 @@
 
 #include "Data.h"
 
-Data::Data(bool value) {
+Data::Data() {
 	// TODO Auto-generated constructor stub
-	this->value = value;
+
 }
 
 Data::~Data() {
 	// TODO Auto-generated destructor stub
+}
+
+void Data::setValue(bool value){
+    this->value = value;
+    
+}
+
+bool Data::getValue(){
+   return this->value;
+    
 }
 
 Data Data::operator*(const Data &b)

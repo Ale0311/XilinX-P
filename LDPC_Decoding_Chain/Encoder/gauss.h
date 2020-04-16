@@ -18,11 +18,11 @@ void hello (){
     cout<<"hello";
 }
 // Function to Print matrix.
-void PrintMatrix(float **ar, int n, int m)
+void PrintMatrix(Data **ar, int n, int m)
 {
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < m; j++) {
-            cout << ar[i][j] << "  ";
+            cout << ar[i][j].getValue() << "  ";
         }
         printf("\n");
     }
@@ -30,11 +30,11 @@ void PrintMatrix(float **ar, int n, int m)
 }
   
 // Function to Print inverse matrix
-void PrintInverse(float **ar, int n, ofstream &fout)
+void PrintInverse(Data **ar, int n, ofstream &fout)
 {
     for (int i = 0; i < n; i++) {
         for (int j=0; j < n; j++) {
-            fout<<ar[i][j]<<" ";
+            fout<<ar[i][j].getValue()<<" ";
         }
         fout<<endl;
     }
@@ -42,12 +42,12 @@ void PrintInverse(float **ar, int n, ofstream &fout)
 }
   
 // Function to perform the inverse operation on the matrix.
-void InverseOfMatrix(float **matrix, int order)
+void InverseOfMatrix(Data **matrix, int order)
 {
     // Matrix Declaration.
   
     
-    float temp;
+    Data temp;
   
     // PrintMatrix function to print the element
     // of the matrix.
@@ -64,8 +64,8 @@ void InverseOfMatrix(float **matrix, int order)
             // Add '1' at the diagonal places of
             // the matrix to create a identity matirx
             if (j == (i + order))
-                matrix[i][j] = 1;
-            else  matrix[i][j] = 0;
+                matrix[i][j].setValue(1) ;
+            else  matrix[i][j].setValue(0);
         }
     }
   
@@ -74,7 +74,7 @@ void InverseOfMatrix(float **matrix, int order)
     for (int i = order - 1; i > 0; i--) {
   
          //Swapping each and every element of the two rows
-         if (matrix[i - 1][0] < matrix[i][0])
+         if (matrix[i - 1][0].getValue() < matrix[i][0].getValue() )
              
          for (int j = 0; j < 2 * order; j++) {
       
@@ -100,11 +100,11 @@ void InverseOfMatrix(float **matrix, int order)
         for (int j = 0; j < order; j++) {
   
             if (j != i) {
-  
-                temp = matrix[j][i] / matrix[i][i];
+  //* instead of /
+                temp = matrix[j][i] * matrix[i][i];
                 for (int k = 0; k < 2 * order; k++) {
   
-                    matrix[j][k] -= matrix[i][k] * temp;
+                    matrix[j][k] = matrix[j][k] - matrix[i][k] * temp;
                 }
             }
         }
@@ -116,8 +116,8 @@ void InverseOfMatrix(float **matrix, int order)
   
         temp = matrix[i][i];
         for (int j = 0; j < 2 * order; j++) {
-  
-            matrix[i][j] = matrix[i][j] / temp;
+   //* instead of /
+            matrix[i][j] = matrix[i][j] * temp;
         }
     }
   

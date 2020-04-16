@@ -14,9 +14,11 @@ class Data {
 public:
 	bool value;
 
-	Data(bool value);
+	Data();
 	~Data();
-
+    
+    void setValue(bool value);
+    bool getValue();
 	Data operator+(const Data& b);
 	Data operator-(const Data& b);
 	Data operator*(const Data& b);

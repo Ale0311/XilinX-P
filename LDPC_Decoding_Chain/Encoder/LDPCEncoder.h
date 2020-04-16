@@ -9,6 +9,7 @@
 #define ENCODER_LDPCENCODER_H_
 
 #include<fstream>
+#include"Data.h"
 
 class LDPC_Encoder {
 public:
@@ -43,9 +44,10 @@ private:
 	//each value in the vector contains 8 binary values from a row
 	Data **trans_version_h;
     
-    int **a;
-    float **t;
-    float **inverse_of_t;
+    Data **a;
+    Data **t;
+    Data **inverse_of_t;
+    Data **copy_inverse_of_t;
     
    
 	void extract_h();
