@@ -3,6 +3,7 @@
 
 #include<fstream>
 #include"Data.h"
+#include "Message.h"
 
 
 class Channel {
@@ -17,8 +18,8 @@ class BSC
 
 public:
     
-    unsigned p;
-    BSC(unsigned p);
+    float p;
+    BSC(float p);
     ~BSC();
     
     Data* applyChannel(Data *coded_vector,unsigned dataLength);

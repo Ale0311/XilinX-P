@@ -26,8 +26,8 @@ Data* BSC::applyChannel(Data *coded_vector, unsigned dataLength) {
     
     //values before
     
-    for ( i=0;i<dataLength;i++) cout << coded_vector[i].getValue();
-    cout <<endl;
+   // for ( i=0;i<dataLength;i++) cout << coded_vector[i].getValue();
+   // cout <<endl;
     
     Data flipBit;
     flipBit.setValue(1);
@@ -35,7 +35,7 @@ Data* BSC::applyChannel(Data *coded_vector, unsigned dataLength) {
     int bitsFlippedCounter=0;
     
     for ( i=0;i<dataLength;i++){
-        int newProbability =rand()%100 + 1;
+        float newProbability = (rand() / RAND_MAX);
         if ( newProbability <= this->p ){
             coded_vector[i] = coded_vector[i] + flipBit;
             bitsFlippedCounter ++;
