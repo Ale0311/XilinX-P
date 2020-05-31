@@ -15,8 +15,3 @@ int add(int a, int b)
 	return c;
 }
 
-int main()
-{
-	int c = add(2147483647, 7);
-	printf("%i\n", c);
-}
